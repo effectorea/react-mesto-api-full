@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/sign-in/static/css/main.ad92e26e.css",
+    "main.js": "/sign-in/static/js/main.6fd704e0.js",
+    "static/js/787.5530211c.chunk.js": "/sign-in/static/js/787.5530211c.chunk.js",
+    "static/media/Inter-Black.woff": "/sign-in/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/sign-in/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Black.woff2": "/sign-in/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/sign-in/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/Intermedium.woff": "/sign-in/static/media/Intermedium.6f2aebd6be1db7b90456.woff",
+    "static/media/Intermedium.woff2": "/sign-in/static/media/Intermedium.5ca7ca726c271e6284a7.woff2",
+    "static/media/logo.svg": "/sign-in/static/media/logo.bbe2a6eafac19c3d031c272c424875ca.svg",
+    "static/media/Vector_svg_heart.svg": "/sign-in/static/media/Vector_svg_heart.1ad06e85f169668a1f36.svg",
+    "index.html": "/sign-in/index.html",
+    "static/media/Trash.svg": "/sign-in/static/media/Trash.e3c42771bff3aaa52f76.svg",
+    "static/media/failure.svg": "/sign-in/static/media/failure.7c6a020bec681932a2af92e04114a848.svg",
+    "static/media/success.svg": "/sign-in/static/media/success.1b6082f862eac35e2514460237d96ecc.svg",
+    "static/media/black_heart.svg": "/sign-in/static/media/black_heart.dd6a61e81552be95f4b7.svg",
+    "static/media/Close_svg_icon.svg": "/sign-in/static/media/Close_svg_icon.973e77374abfb705de40.svg",
+    "static/media/pencil.svg": "/sign-in/static/media/pencil.6c7bf05444b9793fdf6e.svg",
+    "static/media/plus.svg": "/sign-in/static/media/plus.bed8c136e13907f5eefb.svg",
+    "main.ad92e26e.css.map": "/sign-in/static/css/main.ad92e26e.css.map",
+    "main.6fd704e0.js.map": "/sign-in/static/js/main.6fd704e0.js.map",
+    "787.5530211c.chunk.js.map": "/sign-in/static/js/787.5530211c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad92e26e.css",
+    "static/js/main.6fd704e0.js"
+  ]
+}
