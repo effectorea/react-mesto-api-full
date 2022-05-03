@@ -1,0 +1,9 @@
+.popup__error_visible {
+    display: flex;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    max-width: 100%;
+}

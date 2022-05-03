@@ -1,0 +1,9 @@
+.element__info {
+    margin: 0;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 20px 26px 21px;
+    z-index: 1;
+}

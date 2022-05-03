@@ -1,0 +1,13 @@
+.register__label {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.register__label:last-of-type {
+  margin-bottom: 216px;
+}
+@media screen and (max-width: 460px) {
+  .register__label:last-of-type {
+    margin-bottom: 173px;
+  }
+}

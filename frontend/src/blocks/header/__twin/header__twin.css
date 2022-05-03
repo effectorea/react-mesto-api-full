@@ -1,0 +1,12 @@
+.header__twin {
+  display: flex;
+}
+
+@media screen and (max-width: 610px) {
+  .header__twin {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 20px;
+  }
+}
+

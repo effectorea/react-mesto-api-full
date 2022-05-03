@@ -1,0 +1,22 @@
+.register__link {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 15px;
+  transition: 0.3s opacity;
+  text-decoration: none;
+}
+
+.register__link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 460px) {
+    .register__button {
+        margin-top: 20px;
+    }
+}

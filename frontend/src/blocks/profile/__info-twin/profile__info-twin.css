@@ -1,0 +1,6 @@
+.profile__info-twin {
+    max-width: 580px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+}

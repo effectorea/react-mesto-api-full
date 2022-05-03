@@ -1,0 +1,11 @@
+.element__heart_active {
+    border: none;
+    width: 23px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-image: url(../../../../images/black_heart.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    cursor: pointer;
+}
