@@ -20,6 +20,7 @@ const allowedCors = {
     'https://api.romanov.mesto.nomoredomains.work',
     'https://romanov.mesto.nomoredomains.work',
     'http://localhost:3000',
+    'https://mesto.nomoreparties.co/v1/cohort-35',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
