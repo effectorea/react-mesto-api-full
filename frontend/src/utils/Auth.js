@@ -1,4 +1,4 @@
-const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "https://api.romanov.mesto.nomoredomains.work";
 
 function onResponse(res) {
   if (res.ok) {

@@ -9,20 +9,12 @@
     "dev": "nodemon app.js",
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/effectorea/express-mesto-gha.git"
-  },
   "keywords": [
     "express",
     "mongodb"
   ],
   "author": "Романов Евгений <effectorea@yandex.ru>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/effectorea/express-mesto-gha/issues"
-  },
-  "homepage": "https://github.com/effectorea/express-mesto-gha#readme",
   "devDependencies": {
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
