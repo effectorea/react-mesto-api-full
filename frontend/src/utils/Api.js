@@ -7,29 +7,37 @@ function onResponse(res) {
 }
 
 class Api {
-  constructor({ url, headers }) {
+  constructor({ url }) {
     this._url = url;
-    this._headers = headers;
   }
 
-  getCards() {
+  getCards(token) {
     return fetch(`${this._url}/cards`, {
       method: "GET",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
     }).then(onResponse);
   }
 
-  getUserInfo() {
+  getUserInfo(token) {
     return fetch(`${this._url}/users/me`, {
       method: "GET",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
     }).then(onResponse);
   }
 
-  setInfo(data) {
+  setInfo(data, token) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -37,43 +45,51 @@ class Api {
     }).then(onResponse);
   }
 
-  setUserAvatar(data) {
+  setUserAvatar(data, token) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         avatar: data.avatar,
       }),
     }).then(onResponse);
   }
 
-  addCard(element) {
+  addCard(element, token) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify(element),
     }).then(onResponse);
   }
 
-  switchLike(cardId, isLiked) {
+  switchLike(cardId, isLiked, token) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: `${isLiked ? "DELETE" : "PUT"}`,
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
     }).then(onResponse);
   }
 
-  deleteCard(cardId) {
+  deleteCard(cardId, token) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
     }).then(onResponse);
   }
 }
 
 export const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-35",
-  headers: {
-    authorization: "396aec5a-cf08-4342-be3f-c1c3fdb65106",
-    "Content-Type": "application/json",
-  },
+  url: "api.romanov.mesto.nomoredomains.work",
 });

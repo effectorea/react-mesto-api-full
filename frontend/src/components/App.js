@@ -32,8 +32,10 @@ function App() {
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [status, setStatus] = useState(true);
 
+  const jwt = localStorage.getItem('jwt');
+
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+    
     if (jwt) {
       auth
         .checkToken(jwt)
@@ -41,7 +43,7 @@ function App() {
           if (res) {
             setEmail(res.res.email);
             setLoggedIn(true);
-            history.push("/");
+            history.push('/');
           } else {
             localStorage.removeItem(jwt);
           }
@@ -52,11 +54,11 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
-      api.getCards().then((res) => {
+      api.getCards(jwt).then((res) => {
         setCards(res);
       });
       api
-        .getUserInfo()
+        .getUserInfo(jwt)
         .then((res) => {
           setCurrentUser(res);
         })
@@ -87,7 +89,7 @@ function App() {
 
   const handleUpdateUser = (info) => {
     api
-      .setInfo(info)
+      .setInfo(info, jwt)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
@@ -99,7 +101,7 @@ function App() {
 
   const handleUpdateAvatar = (info) => {
     api
-      .setUserAvatar(info)
+      .setUserAvatar(info, jwt)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
@@ -113,7 +115,7 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
     api
-      .switchLike(card._id, isLiked)
+      .switchLike(card._id, isLiked, jwt)
       .then((res) =>
         setCards((state) => state.map((c) => (c._id === card._id ? res : c)))
       )
@@ -122,7 +124,7 @@ function App() {
 
   function handleCardDelete() {
     api
-      .deleteCard(deletedCard._id)
+      .deleteCard(deletedCard._id, jwt)
       .then(() =>
         setCards((state) => state.filter((c) => c._id !== deletedCard._id))
       )
@@ -137,7 +139,7 @@ function App() {
 
   function handleUpdatePlace(card) {
     api
-      .addCard(card)
+      .addCard(card, jwt)
       .then((res) => {
         setCards([res, ...cards]);
         closeAllPopups();
@@ -153,7 +155,7 @@ function App() {
         if (res) {
           setIsInfoTooltipOpen(true);
           setStatus(true);
-          history.push("/sign-in");
+          history.push('/sign-in');
         }
       })
       .catch((err) => {
@@ -170,8 +172,8 @@ function App() {
         if (res.token) {
           setEmail(email);
           setLoggedIn(true);
-          localStorage.setItem("jwt", res.token);
-          history.push("/");
+          localStorage.setItem('jwt', res.token);
+          history.push('/');
         }
       })
       .catch((err) => {
@@ -182,9 +184,9 @@ function App() {
   }
 
   function handleSignOut() {
-    localStorage.removeItem("jwt");
-    history.push("/sign-in");
-    setEmail("");
+    localStorage.removeItem('jwt');
+    history.push('/sign-in');
+    setEmail('');
     setLoggedIn(false);
   }
 
