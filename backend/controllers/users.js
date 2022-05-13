@@ -7,6 +7,8 @@ const NotFoundError = require('../errors/NotFoundError');
 const SameEmailError = require('../errors/SameEmailError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.status(200).send({ data: users }))
@@ -113,7 +115,7 @@ module.exports.login = (req, res, next) => {
   if (!email || !password) return next(new BadRequestError('Поля не могут быть пустыми'));
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
       res
         .cookie('jwt', token, {
           maxAge: 3600000,
