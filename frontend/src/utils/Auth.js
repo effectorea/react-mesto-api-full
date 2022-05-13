@@ -27,16 +27,16 @@ export const login = (email, password) => {
       password: password,
       email: email,
     }),
-  }).then(onResponse);
+  }).then(onResponse)
 };
 
-export const checkToken = (jwt) => {
+export const checkToken = (token) => {
     return fetch(`${BASE_URL}/users/me`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        "Authorization" : `Bearer ${jwt}`
+        "Authorization" : `Bearer ${token}`
       }
     })
     .then(onResponse)

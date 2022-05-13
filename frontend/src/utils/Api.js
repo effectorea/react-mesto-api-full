@@ -91,5 +91,5 @@ class Api {
 }
 
 export const api = new Api({
-  url: "api.romanov.mesto.nomoredomains.work",
+  url: "https://api.romanov.mesto.nomoredomains.work",
 });

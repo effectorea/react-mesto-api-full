@@ -50,7 +50,7 @@ function App() {
         })
         .catch((err) => console.log(err));
     }
-  }, [history]);
+  }, [history, jwt]);
 
   useEffect(() => {
     if (loggedIn) {
@@ -64,7 +64,7 @@ function App() {
         })
         .catch((err) => console.log(`Ошибка при загрузке данных ${err}`));
     }
-  }, [loggedIn]);
+  }, [loggedIn, jwt]);
 
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
@@ -169,6 +169,7 @@ function App() {
     auth
       .login(email, password)
       .then((res) => {
+        console.log(res.token)
         if (res.token) {
           setEmail(email);
           setLoggedIn(true);
