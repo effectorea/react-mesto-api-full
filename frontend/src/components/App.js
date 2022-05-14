@@ -44,6 +44,7 @@ function App() {
             console.log(res)
             setEmail(res.email);
             setLoggedIn(true);
+            setCurrentUser(res);
             history.push('/');
           } else {
             localStorage.removeItem(jwt);
@@ -115,7 +116,7 @@ function App() {
   };
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i.toString() === currentUser._id.toString());
 
     api
       .switchLike(card._id, isLiked, jwt)
@@ -177,9 +178,9 @@ function App() {
         console.log(res.user)
         if (res.token) {
           setEmail(email);
-          setLoggedIn(true);
           setCurrentUser(res.user)
           localStorage.setItem('jwt', res.token);
+          setLoggedIn(true);
           history.push('/');
         }
       })
