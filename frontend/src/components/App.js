@@ -119,8 +119,10 @@ function App() {
 
     api
       .switchLike(card._id, isLiked, jwt)
-      .then((res) =>
+      .then((res) => {
+        console.log(res)
         setCards((state) => state.map((c) => (c._id === card._id ? res : c)))
+      }
       )
       .catch((err) => console.log(err));
   }
