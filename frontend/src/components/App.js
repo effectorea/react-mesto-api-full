@@ -41,7 +41,8 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            setEmail(res.res.email);
+            console.log(res)
+            setEmail(res.email);
             setLoggedIn(true);
             history.push('/');
           } else {
@@ -55,11 +56,13 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       api.getCards(jwt).then((res) => {
-        setCards(res);
+        console.log(res.data);
+        setCards(res.data);
       });
       api
         .getUserInfo(jwt)
         .then((res) => {
+          console.log(res);
           setCurrentUser(res);
         })
         .catch((err) => console.log(`Ошибка при загрузке данных ${err}`));

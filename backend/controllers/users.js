@@ -121,7 +121,7 @@ module.exports.login = (req, res, next) => {
           maxAge: 3600000,
           httpOnly: true,
         });
-      res.status(200).send({ token, message: 'Пользователь успешно зарегистрирован' });
+      res.status(200).send({ token, user, message: 'Пользователь успешно зарегистрирован' });
     })
     .catch(() => {
       next(new UnauthorizedError('Неверная авторизация'));
