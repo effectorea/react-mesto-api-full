@@ -23,7 +23,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
   const [deletedCard, setDeletedCard] = useState(null);
   const [cards, setCards] = useState([]);
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
@@ -181,6 +181,7 @@ function App() {
           setCurrentUser(res.user)
           localStorage.setItem('jwt', res.token);
           setLoggedIn(true);
+          console.log(currentUser)
           history.push('/');
         }
       })
