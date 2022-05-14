@@ -11,7 +11,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.status(200).send({ data: users }))
+    .then((users) => res.status(200).send(users))
     .catch(next);
 };
 
@@ -40,7 +40,7 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     }))
     .then((user) => User.findOne({ _id: user._id }))
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные.'));
@@ -79,7 +79,7 @@ module.exports.updateProfile = (req, res, next) => {
       if (!user) {
         next(new BadRequestError('Переданы некорректные данные'));
       }
-      return res.status(200).send({ data: user });
+      return res.status(200).send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -100,7 +100,7 @@ module.exports.updateAvatar = (req, res, next) => {
       if (!user) {
         next(new BadRequestError('Переданы некорректные данные'));
       }
-      return res.status(200).send({ data: user });
+      return res.status(200).send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

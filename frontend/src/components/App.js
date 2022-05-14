@@ -56,8 +56,8 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       api.getCards(jwt).then((res) => {
-        console.log(res.data);
-        setCards(res.data);
+        console.log(res);
+        setCards(res);
       });
       api
         .getUserInfo(jwt)
@@ -94,7 +94,7 @@ function App() {
     api
       .setInfo(info, jwt)
       .then((res) => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         closeAllPopups();
       })
       .catch((err) => {
@@ -106,7 +106,7 @@ function App() {
     api
       .setUserAvatar(info, jwt)
       .then((res) => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         closeAllPopups();
       })
       .catch((err) => {
@@ -146,7 +146,7 @@ function App() {
     api
       .addCard(card, jwt)
       .then((res) => {
-        setCards([res.data, ...cards]);
+        setCards([res, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -178,7 +178,7 @@ function App() {
         if (res.token) {
           setEmail(email);
           setLoggedIn(true);
-          setCurrentUser({})
+          setCurrentUser(res.user)
           localStorage.setItem('jwt', res.token);
           history.push('/');
         }
