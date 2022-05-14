@@ -94,7 +94,7 @@ function App() {
     api
       .setInfo(info, jwt)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -106,7 +106,7 @@ function App() {
     api
       .setUserAvatar(info, jwt)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -144,7 +144,7 @@ function App() {
     api
       .addCard(card, jwt)
       .then((res) => {
-        setCards([res, ...cards]);
+        setCards([res.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -172,10 +172,11 @@ function App() {
     auth
       .login(email, password)
       .then((res) => {
-        console.log(res.token)
+        console.log(res.user)
         if (res.token) {
           setEmail(email);
           setLoggedIn(true);
+          setCurrentUser({})
           localStorage.setItem('jwt', res.token);
           history.push('/');
         }
